@@ -1,9 +1,0 @@
-<shape android:height="24dp" android:tint="#53a716"
-    android:viewportHeight="24" android:viewportWidth="24"
-    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
-    <path android:fillColor="@android:color/white" android:pathData="M2,4h20v16h-20z"/>
-
-    <stroke
-        android:width="3dp"
-        android:color="@color/black" />
-</shape>
