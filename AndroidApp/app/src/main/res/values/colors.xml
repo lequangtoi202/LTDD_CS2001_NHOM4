@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="clGreen">#00875A</color>
+    <color name="clTxtPrice">#321F9D</color>
+    <color name="clBtnMint">#EBF7ED</color>
+    <color name="clTxtSubject">#353535</color>
+    <color name="clTagInfo">#6B6B6B</color>
+    <color name="clTxtContent">#9D9D9D</color>
+    <color name="clRed">#AB1F1F</color>
+    <color name="clGray">#c8c8d9</color>
+    <color name="yellow">#FFFF00</color>
+</resources>
