@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.flowerstore_cart.activity.CartConfirmation">
+    <item
+        android:id="@+id/back"
+        app:showAsAction = "never"
+        android:title="Back to Homepage"/>
+    <item
+        android:id="@+id/exit"
+        app:showAsAction = "never"
+        android:title="Exit App"/>
+</menu>
