@@ -138,15 +138,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         holder.itemBtnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int choice = 1; //Biến này dùng để xác định loại updateQuantity
+                int choice = 1;
                 int temp = db.get(position).getQuantity();
                 temp++;
 
                 String s = updateQuantity(db, choice, position);
-                String[] str = s.split(" ");
 
-                String tmp = str[0];
-                mlblCountProducts.setText(tmp);
                 updateItemToCart(db.get(position).getFlowerId(), temp);
                 db.get(position).setQuantity(temp);
                 notifyDataSetChanged();
@@ -159,12 +156,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                 int temp = db.get(position).getQuantity();
                 if (temp > 1) {
                     temp--;
-                    int choice = 2; //Biến này dùng để xác định loại updateQuantity
+                    int choice = 2;
                     String s = updateQuantity(db, choice, position);
-                    String[] str = s.split(" ");
 
-                    String tmp = str[0];
-                    mlblCountProducts.setText(tmp);
                     updateItemToCart(db.get(position).getFlowerId(), temp);
                     db.get(position).setQuantity(temp);
                     notifyDataSetChanged();
@@ -173,13 +167,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         });
     }
 
-    // Phương thức này trả về số lượng phần tử trong danh sách dữ liệu
     @Override
     public int getItemCount() {
         return db.size();
     }
 
-    // Phương thức này trả về chuỗi gồm tổng số lượng sản phầm và tổng tiền tạm tính của sản phẩm
     @Override
     public String toString() {
         int countItems = 0;
@@ -189,12 +181,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             double x = p.getQuantity();
             priceTotal = priceTotal + (p.getTotalPrice()) * x;
         }
-        String str = Integer.toString(countItems) + " " + Double.toString(priceTotal);
+        String str = countItems + " " + priceTotal;
 
         return str;
     }
 
-    // Phương thức này cập nhật thay đổi số lượng trên sản phẩm truyền vào, từ đó thay đổi giá tiền tạm tính khi sản phẩm truyền vào tăng/giảm
     public String updateQuantity(List<CartDetail> arr, int choice, int position) {
         String s = "";
         int tmp = 0;
@@ -227,6 +218,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                     @Override
                     public void onResponse(Call<Cart> call, Response<Cart> response) {
                         cart = response.body();
+                        mlblCountProducts.setText(String.valueOf(cart.getTotalAmount()));
                         mlblTotalValue.setText(String.valueOf(cart.getTotalPrice()));
                     }
 
